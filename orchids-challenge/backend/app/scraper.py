@@ -38,8 +38,8 @@ class WebsiteScraper:
                 browser = await p.chromium.launch()
                 page = await browser.new_page()
                 
-                # Navigate to the URL with a timeout of 30 seconds
-                await page.goto(url, wait_until="networkidle", timeout=30000)
+                # Navigate to the URL with a less strict wait condition and increased timeout
+                await page.goto(url, wait_until="domcontentloaded", timeout=60000)
                 
                 # Take a screenshot of the full page
                 screenshot = await page.screenshot(full_page=True, type="jpeg", quality=80)

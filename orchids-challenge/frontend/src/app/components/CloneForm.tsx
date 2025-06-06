@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function CloneForm() {
+export const CloneForm = () => {
   const [url, setUrl] = useState('');
   const [model, setModel] = useState('claude');
   const [isLoading, setIsLoading] = useState(false);
@@ -53,8 +53,8 @@ export default function CloneForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
-      <h2 className="text-xl font-semibold text-center mb-6 text-gray-800 dark:text-white">
+    <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl p-8 border border-slate-700/50">
+      <h2 className="text-2xl font-bold text-white mb-6">
         Clone Any Website
       </h2>
 
@@ -62,7 +62,7 @@ export default function CloneForm() {
         <div>
           <label 
             htmlFor="url" 
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="block text-sm font-medium text-slate-300 mb-2"
           >
             Website URL
           </label>
@@ -72,7 +72,7 @@ export default function CloneForm() {
             placeholder="https://example.com"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            className="w-full px-4 py-3 bg-slate-700/70 border border-slate-600/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder-slate-400"
             required
           />
         </div>
@@ -80,7 +80,7 @@ export default function CloneForm() {
         <div>
           <label 
             htmlFor="model" 
-            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+            className="block text-sm font-medium text-slate-300 mb-2"
           >
             AI Model
           </label>
@@ -88,7 +88,7 @@ export default function CloneForm() {
             id="model"
             value={model}
             onChange={(e) => setModel(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+            className="w-full px-4 py-3 bg-slate-700/70 border border-slate-600/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
           >
             <option value="claude">Claude 4 Sonnet</option>
             <option value="gemini">Gemini 2.5 Pro</option>
@@ -96,17 +96,17 @@ export default function CloneForm() {
         </div>
 
         {error && (
-          <div className="text-red-500 text-sm">{error}</div>
+          <div className="text-red-400 text-sm mt-2">{error}</div>
         )}
 
         <button
           type="submit"
           disabled={isLoading || !url}
-          className={`w-full py-2 px-4 rounded-md text-white font-medium ${
+          className={`w-full py-3 px-4 rounded-xl text-white font-medium ${
             isLoading || !url 
-              ? 'bg-blue-300 cursor-not-allowed' 
-              : 'bg-blue-600 hover:bg-blue-700'
-          }`}
+              ? 'bg-purple-500/50 cursor-not-allowed' 
+              : 'bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600'
+          } transition-all duration-200 shadow-lg`}
         >
           {isLoading ? 'Processing...' : 'Clone Website'}
         </button>
@@ -114,3 +114,5 @@ export default function CloneForm() {
     </div>
   );
 }
+
+export default CloneForm;
