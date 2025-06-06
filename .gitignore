@@ -1,0 +1,51 @@
+# Python backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.env
+
+# Backend specific
+backend/jobs/
+backend/cache/
+backend/venv/
+backend/.venv/
+
+# Next.js frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel
+frontend/.env*.local
+frontend/.DS_Store
+frontend/*.pem
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
