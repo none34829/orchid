@@ -119,7 +119,7 @@ async def process_clone_job(job_id: str, url: str, model: Optional[str] = None):
         jobs[job_id]["message"] = "Scraping website content"
         
         # Check cache first
-        cached_data = scraper.get_cached_website_data(url)
+        cached_data = await scraper.get_cached_website_data(url)
         
         if cached_data:
             design_context = cached_data
